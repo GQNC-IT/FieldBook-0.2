@@ -28,5 +28,9 @@
     <string name="button_submit_signup">Submit</string>
     <string name="title_activity_signup_display">SignupDisplayActivity</string>
     
+    <!--  Action Bar -->
+    <string name="action_logout">Logout</string>
+    <string name="action_import_export">Import/Export</string>
+    <string name="action_share">Share</string>
 
 </resources>
