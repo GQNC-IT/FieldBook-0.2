@@ -27,6 +27,9 @@
     <string name="edit_birthdate"></string>
     <string name="button_submit_signup">Submit</string>
     <string name="title_activity_signup_display">SignupDisplayActivity</string>
-    
+    <string name="hello_world">Hello world!</string>
+    <string name="create">Create New Fieldbook</string><string name="name">Name: </string>
+    <string name="create2">Create</string>
+    <string name="log">Log out</string>
 
 </resources>
