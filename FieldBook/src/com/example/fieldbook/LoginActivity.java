@@ -26,6 +26,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -162,7 +163,7 @@ public class LoginActivity extends ActionBarActivity {
 	}
 	
 	
-	public void logOut(View view){
+	public void logOut(){
 		
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
@@ -246,8 +247,11 @@ public class LoginActivity extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
+		//getMenuInflater().inflate(R.menu.login, menu);
+		//return true;
+		MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.main_activity_actions, menu);
+	    return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
@@ -256,10 +260,22 @@ public class LoginActivity extends ActionBarActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+		switch (item.getItemId()) {
+		case R.id.action_import_export:
+            //logOut();
+            return true;
+		case R.id.action_share:
+            //logout();
+            return true;
+        case R.id.action_logout:
+            logOut();
+            return true;
+        case R.id.action_settings:
+            //openSettings();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+    }
 	}
 
 	/**

@@ -215,3 +215,5 @@ pip-log.txt
 .mr.developer.cfg
 FieldBook/gen/com/example/fieldbook/R.java
 FieldBook/project.properties
+FieldBook/gen/android/support/v7/appcompat/R.java
+FieldBook/project.properties
