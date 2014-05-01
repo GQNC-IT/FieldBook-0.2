@@ -27,10 +27,17 @@
     <string name="edit_birthdate"></string>
     <string name="button_submit_signup">Submit</string>
     <string name="title_activity_signup_display">SignupDisplayActivity</string>
+<<<<<<< HEAD
     
     <!--  Action Bar -->
     <string name="action_logout">Logout</string>
     <string name="action_import_export">Import/Export</string>
     <string name="action_share">Share</string>
+=======
+    <string name="hello_world">Hello world!</string>
+    <string name="create">Create New Fieldbook</string><string name="name">Name: </string>
+    <string name="create2">Create</string>
+    <string name="log">Log out</string>
+>>>>>>> 02516d4c482c73473950863de66028f83be52fa6
 
 </resources>

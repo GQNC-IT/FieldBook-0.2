@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
+//import com.example.fieldbook.R; 
 
 public class MainActivity extends ActionBarActivity {
 	MySQLiteHelper db = new MySQLiteHelper(this); // initialization for the database used
@@ -41,9 +42,22 @@ public class MainActivity extends ActionBarActivity {
 	    	try {
 	    		if (db.Login(message1, message2)) { // a toast will pop if correct username and password was entered
 	    			Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_LONG).show();
+	    			Intent intent = new Intent(this, LoginActivity.class);
+	    			intent.putExtra("username", message1);
+	        		intent.putExtra("password", message2);
+	    			startActivity(intent);
 	    		} 
 	    		else { // a toast will pop if invalid username and password was entered
-	    			Toast.makeText(this,"Invalid username or password",Toast.LENGTH_LONG).show();
+	    			//Toast.makeText(this,"Invalid username or password",Toast.LENGTH_LONG).show();
+	    			Intent intent = new Intent(this, LoginActivity.class);
+	    			intent.putExtra("username", message1);
+	        		intent.putExtra("password", message2);
+	    			startActivity(intent);
+	    			/*
+	    			 * Naglagay muna ako ng intent dito para makapunta na dun sa class ko.
+	    			 * 
+	    			 * */
+	    			
 	    		} 
 	    	} 
 	    	catch (Exception e) { // a toast will pop if there was an error occured
