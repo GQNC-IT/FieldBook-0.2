@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/trial"
-            android:onClick="generateXLS" />
+            android:onClick="generateTSV" />
 
         <ListView
             android:id="@+id/listView1"

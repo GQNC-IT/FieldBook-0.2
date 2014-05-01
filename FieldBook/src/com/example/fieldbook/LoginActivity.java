@@ -4,9 +4,11 @@
 
 package com.example.fieldbook;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -258,7 +260,8 @@ public class LoginActivity extends ActionBarActivity {
 		
 		MySQLiteHelper dbHelper = new MySQLiteHelper(this);
 		SQLiteDatabase db = openOrCreateDatabase("UserDB.db", MODE_PRIVATE, null);
-		Cursor cursor = db.rawQuery("select count from users", null);
+		Cursor cursor = db.rawQuery("select * from users", null);
+		int rowCount = cursor.getCount();
 		if(cursor != null)
 			cursor.moveToFirst();
 		
@@ -272,18 +275,70 @@ public class LoginActivity extends ActionBarActivity {
 				Label label = new Label(i, 0, colHeads[i]);
 				worksheet.addCell(label);
 			}
+			
 			int rows = 0;
-			while(cursor.moveToNext()){
+			cursor.moveToFirst();
+			while(cursor.isAfterLast() == false){
 				rows++;
 				for(int i = 0; i < colCount; i++){
 					Label label = new Label(i, rows, cursor.getString(i));
+					
 					worksheet.addCell(label);
 				}
+				cursor.moveToNext();
 			}
 			
+			
+			cursor.close();
 			workbook.write();
 			workbook.close();
 			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void generateTSV(View view){
+
+		String sdCard = Environment.getExternalStorageDirectory().getPath();
+		File directory = new File (sdCard + "/tsvfiles");
+		
+		Log.i("Excel",sdCard+ "/tsvfiles");
+		
+		directory.mkdirs();
+		
+		MySQLiteHelper dbHelper = new MySQLiteHelper(this);
+		SQLiteDatabase db = openOrCreateDatabase("UserDB.db", MODE_PRIVATE, null);
+		Cursor cursor = db.rawQuery("select * from users", null);
+		int rowCount = cursor.getCount();
+		if(cursor != null)
+			cursor.moveToFirst();
+		
+		String[] colHeads = dbHelper.getColHeads(); 
+		
+		try{
+			File tsvFile = new File(directory, "TSVFile-0.1.txt");
+			BufferedWriter bw = new BufferedWriter(new FileWriter(tsvFile));
+			
+			int colCount = cursor.getColumnCount();
+			for(int i = 0; i < colCount; i++){
+				bw.write(colHeads[i]+"\t");
+			}
+			bw.write("\n");
+			cursor.moveToFirst();
+			while(cursor.isAfterLast() == false){
+				for(int i = 0; i < colCount; i++){
+					bw.write(cursor.getString(i)+"\t");
+				}
+				bw.write("\n");
+				cursor.moveToNext();
+			}
+			cursor.close();
+			bw.flush();
+			bw.close();
+			
+			Toast toast = Toast.makeText(getApplicationContext(), "TSV File made", Toast.LENGTH_SHORT);
+			toast.show();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
