@@ -13,17 +13,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
-
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -235,6 +243,50 @@ public class LoginActivity extends ActionBarActivity {
 		//loadActivity();
 		
 		
+	}
+	
+	public void generateXLS(View view){
+		
+		Toast toast = Toast.makeText(getApplicationContext(), "Excel file has been made", Toast.LENGTH_SHORT);
+		toast.show();
+		String sdCard = Environment.getExternalStorageDirectory().getPath();
+		File directory = new File (sdCard + "/excelfiles");
+		
+		Log.i("Excel",sdCard+ "/excelfiles");
+		
+		directory.mkdirs();
+		
+		MySQLiteHelper dbHelper = new MySQLiteHelper(this);
+		SQLiteDatabase db = openOrCreateDatabase("UserDB.db", MODE_PRIVATE, null);
+		Cursor cursor = db.rawQuery("select count from users", null);
+		if(cursor != null)
+			cursor.moveToFirst();
+		
+		String[] colHeads = dbHelper.getColHeads(); 
+		
+		try{
+			WritableWorkbook workbook = Workbook.createWorkbook(new File(directory, "ExcelFile-0.1.xls"));
+			WritableSheet worksheet = workbook.createSheet("users", 0);
+			int colCount = cursor.getColumnCount();
+			for(int i = 0; i < colCount; i++){
+				Label label = new Label(i, 0, colHeads[i]);
+				worksheet.addCell(label);
+			}
+			int rows = 0;
+			while(cursor.moveToNext()){
+				rows++;
+				for(int i = 0; i < colCount; i++){
+					Label label = new Label(i, rows, cursor.getString(i));
+					worksheet.addCell(label);
+				}
+			}
+			
+			workbook.write();
+			workbook.close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	public void reappear(){

@@ -33,6 +33,8 @@
     <string name="create2">Create</string>
     <string name="log">Log out</string>
     
+    <string name="trial">Try</string>
+    
     <!--  Action Bar -->
     <string name="action_logout">Logout</string>
     <string name="action_import_export">Import/Export</string>

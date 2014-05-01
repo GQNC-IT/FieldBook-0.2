@@ -218,6 +218,18 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Log.d("deleteUser", user.toString());
     }
     
+    public String getTableName(){
+    	return this.TABLE_USERS;
+    }
+    
+    public String getDatabaseName(){
+    	return this.DATABASE_NAME;
+    }
+    
+    public String[] getColHeads(){
+    	return this.COLUMNS;
+    }
+    
     public boolean Login(String username, String password) throws SQLException{ // validation if the user input a valid account
     	SQLiteDatabase db = this.getWritableDatabase();
     	Cursor mCursor = db.rawQuery("SELECT * FROM " + TABLE_USERS + " WHERE username=? AND password=?", new String[]{username,password});
