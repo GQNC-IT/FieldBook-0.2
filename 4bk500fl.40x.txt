@@ -1,0 +1,56 @@
+﻿Merge branch 'master' of https://github.com/GQNC-IT/FieldBook-0.2
+
+Conflicts:
+	FieldBook/gen/com/example/fieldbook/R.java
+	FieldBook/project.properties
+	FieldBook/res/values/strings.xml
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#	modified:   FieldBook/AndroidManifest.xml
+#	modified:   FieldBook/gen/android/support/v7/appcompat/R.java
+#	deleted:    FieldBook/gen/com/example/fieldbook/R.java
+#	new file:   FieldBook/libs/commons-codec-1.6-javadoc.jar
+#	new file:   FieldBook/libs/commons-codec-1.6.jar
+#	modified:   FieldBook/project.properties
+#	new file:   FieldBook/res/drawable-hdpi/fieldbook.png
+#	new file:   FieldBook/res/drawable-hdpi/greencross.png
+#	new file:   FieldBook/res/drawable-ldpi/fieldbook.png
+#	new file:   FieldBook/res/drawable-ldpi/greencross.png
+#	new file:   FieldBook/res/drawable-mdpi/fieldbook.png
+#	new file:   FieldBook/res/drawable-mdpi/greencross.png
+#	new file:   FieldBook/res/drawable-xhdpi/fieldbook.png
+#	new file:   FieldBook/res/drawable-xhdpi/greencross.png
+#	new file:   FieldBook/res/drawable-xxhdpi/fieldbook.png
+#	new file:   FieldBook/res/drawable-xxhdpi/greencross.png
+#	new file:   FieldBook/res/layout/fragment_fieldbook_display.xml
+#	modified:   FieldBook/res/layout/fragment_main.xml
+#	modified:   FieldBook/res/layout/fragment_signup.xml
+#	new file:   FieldBook/res/layout/listview_twolines.xml
+#	modified:   FieldBook/res/values/strings.xml
+#	modified:   FieldBook/src/com/example/fieldbook/LoginActivity.java
+#	modified:   FieldBook/src/com/example/fieldbook/MainActivity.java
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   .gitignore
+#
+
