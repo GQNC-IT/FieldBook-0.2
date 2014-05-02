@@ -47,12 +47,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         String CREATE_USER_TABLE = "CREATE TABLE users ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " + 
                 "userid TEXT, "+
-                "username TEXT," +
-                "password TEXT"+
-                "firstname TEXT"+
-                "middlename TEXT"+
-                "lastname TEXT"+
-                "birthdate TEXT"+
+                "username TEXT, " +
+                "password TEXT, "+
+                "firstname TEXT, "+
+                "middlename TEXT, "+
+                "lastname TEXT, "+
+                "birthdate TEXT, "+
                 "companyid TEXT)";
         
         this.db1 = db;

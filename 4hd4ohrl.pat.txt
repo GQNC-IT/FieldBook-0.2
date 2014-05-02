@@ -1,0 +1,41 @@
+﻿Merge branch 'master' of https://github.com/GQNC-IT/FieldBook-0.2
+
+Conflicts:
+	FieldBook/res/values/strings.xml
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#	modified:   FieldBook/AndroidManifest.xml
+#	new file:   FieldBook/res/layout/activity_data_collection.xml
+#	new file:   FieldBook/res/layout/fragment_data_collection.xml
+#	new file:   FieldBook/res/menu/data_collection.xml
+#	new file:   FieldBook/res/menu/data_collection_actions.xml
+#	modified:   FieldBook/res/values/strings.xml
+#	new file:   FieldBook/src/com/example/fieldbook/DataCollection.java
+#	modified:   FieldBook/src/com/example/fieldbook/LoginActivity.java
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   FieldBook/gen/android/support/v7/appcompat/R.java
+#	modified:   FieldBook/gen/com/example/fieldbook/BuildConfig.java
+#	modified:   FieldBook/project.properties
+#
+

@@ -25,11 +25,18 @@ android:orientation="vertical"
     		android:paddingRight="32dip" />
 
         <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="generateXLS"
+            android:text="@string/trialXLS" />
+
+        <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-            android:text="@string/trial"
-            android:onClick="generateTSV" />
+            android:layout_height="wrap_content"
+            android:onClick="generateTSV"
+            android:text="@string/trialTSV" />
 
         <ListView
             android:id="@+id/listView1"
