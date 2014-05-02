@@ -42,6 +42,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -72,7 +73,20 @@ public class LoginActivity extends ActionBarActivity {
 	}
 
 	public void loadActivity(){
+		
+		
 		File dir = new File("data/data/com.example.fieldbook/fieldbooks"); //Not dynamic yet
+		if(!(dir.isDirectory())){
+			dir.mkdirs();
+			File dir2 = new File("data/data/com.example.fieldbook/fieldbooks/Fieldbook 1.db");
+			try {
+				dir2.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 		File[] filelist = dir.listFiles();
 		String[] namesOfFiles = new String[filelist.length];
 		String temp1;
@@ -145,6 +159,21 @@ public class LoginActivity extends ActionBarActivity {
 
 		//listView.setAdapter(adapter);
 		
+		
+		
+		listView.setOnItemClickListener(new OnItemClickListener(){
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+			Toast.makeText(getApplicationContext(),
+	                 "Item clicked", Toast.LENGTH_LONG)
+	                 .show();
+			goDataCollection();
+			}
+	
+		});
+		
+		
+		
 		 listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 			 
            //  @Override
@@ -173,6 +202,12 @@ public class LoginActivity extends ActionBarActivity {
 		
 	}
 	
+	
+	public void goDataCollection(){
+		Intent intent = new Intent(this, DataCollection.class);
+		startActivity(intent);
+		
+	}
 	
 	public void logOut(){
 		
