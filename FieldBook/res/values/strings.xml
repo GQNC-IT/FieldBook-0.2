@@ -33,11 +33,13 @@
     <string name="create2">Create</string>
     <string name="log">Log out</string>
     
-    <string name="trial">Try</string>
+    <string name="trialTSV">Generate TSV</string>
+    <string name="trialXLS">Generate XLS</string>
     
     <!--  Action Bar -->
     <string name="action_logout">Logout</string>
     <string name="action_import_export">Import/Export</string>
     <string name="action_share">Share</string>
+    <string name="action_check_update">Check Updates</string>
 
 </resources>

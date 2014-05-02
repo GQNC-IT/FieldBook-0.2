@@ -26,6 +26,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -357,7 +358,7 @@ public class LoginActivity extends ActionBarActivity {
 		//getMenuInflater().inflate(R.menu.login, menu);
 		//return true;
 		MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.main_activity_actions, menu);
+	    inflater.inflate(R.menu.activity_login_actions, menu);
 	    return super.onCreateOptionsMenu(menu);
 	}
 
@@ -368,10 +369,28 @@ public class LoginActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		switch (item.getItemId()) {
-		case R.id.action_import_export:
-            //logOut();
-            return true;
 		case R.id.action_share:
+			final String [] items=new String []{"Excel","Tab Separated File"};
+			AlertDialog.Builder builder=new AlertDialog.Builder(this);
+			builder.setTitle("Items alert");
+
+			builder.setItems(items, new OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+			// TODO Auto-generated method stub
+				if(which == 0){
+					generateXLS(new View(getApplicationContext()));
+				}
+				else if(which == 1){
+					generateTSV(new View(getApplicationContext()));
+				}
+			}
+			});
+
+			builder.show();
+            return true;
+		case R.id.action_import_export:
             //logout();
             return true;
         case R.id.action_logout:
